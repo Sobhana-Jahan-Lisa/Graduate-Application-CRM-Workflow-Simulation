@@ -2,9 +2,6 @@
 
 A web-based CRM prototype that simulates graduate admissions operations. This project is designed to demonstrate skills relevant to CRM support, higher-education technology, workflow testing, reporting, data exports, documentation, and user support.
 
-## Why this project exists
-
-Graduate schools use CRM systems to manage application records, admissions workflows, forms, portals, reports, and user support requests. This project simulates those tasks in a small static web application that can be run locally or published with GitHub Pages.
 
 ## Features
 
