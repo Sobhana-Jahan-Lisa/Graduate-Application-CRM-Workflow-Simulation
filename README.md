@@ -1,2 +1,69 @@
-# Graduate-Application-CRM-Workflow-Simulation
-A front-end graduate admissions CRM prototype using HTML, CSS, and JavaScript with browser local storage for applicant record management and CSV export.
+# Graduate Application CRM Workflow Simulation
+
+A web-based CRM prototype that simulates graduate admissions operations. This project is designed to demonstrate skills relevant to CRM support, higher-education technology, workflow testing, reporting, data exports, documentation, and user support.
+
+## Why this project exists
+
+Graduate schools use CRM systems to manage application records, admissions workflows, forms, portals, reports, and user support requests. This project simulates those tasks in a small static web application that can be run locally or published with GitHub Pages.
+
+## Features
+
+- Applicant record management
+- Application status tracking
+- Required document checklist
+- Assigned reviewer field
+- Admissions operations dashboard
+- Applicant search and filters
+- Program-level and status-level reports
+- Incomplete application query
+- CSV export for applicants and summary reports
+- Help Desk ticket tracker
+- User guide and workflow documentation
+- Testing checklist for QA and process improvement
+
+## Technologies Used
+
+- HTML
+- CSS
+- JavaScript
+- Browser localStorage
+- CSV export
+
+No server or database installation is required. Data is stored in the browser using localStorage.
+
+## How to Run
+
+1. Download or clone this repository.
+2. Open `index.html` in a web browser.
+3. Use the dashboard, applicant management, reports, Help Desk, and documentation sections.
+4. Click **Reset Sample Data** to restore the original sample records.
+5. Click **Export Applicants CSV** or **Export Summary CSV** to download reports.
+
+## Suggested GitHub Pages Deployment
+
+1. Push this project to a GitHub repository.
+2. Go to **Settings > Pages**.
+3. Select the main branch and root folder.
+4. Save and open the published link.
+
+## Project Relevance to Slate CRM Support
+
+This project demonstrates experience with:
+
+- CRM-style record management
+- Admissions/application workflows
+- Form and portal testing
+- Data queries and reports
+- CSV data exports
+- Help Desk-style troubleshooting
+- User-facing documentation
+- Process improvement thinking
+
+## CV Bullet Example
+
+**Graduate Application CRM Workflow Simulation**  
+Designed a mock graduate admissions CRM workflow to manage applicant records, application statuses, missing documents, reviewer assignments, Help Desk requests, operational reports, and CSV exports. Created user documentation and workflow testing notes to support process improvement and higher-education technology operations.
+
+## Disclaimer
+
+This is an independent educational project. It is not connected to, endorsed by, or integrated with any official Slate CRM or university system.

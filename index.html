@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graduate Application CRM Workflow Simulation</title>
+  <link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Graduate School Operations </p>
+      <h1>Graduate Application CRM Workflow Simulation</h1>
+      <p class="subtitle">An admission CRM prototype for applicant tracking, workflow testing, reporting, and user support.</p>
+    </div>
+    <div class="topbar-actions">
+      <button id="seedBtn" class="secondary">Reset Sample Data</button>
+      <button id="exportApplicantsBtn" class="primary">Export Applicants CSV</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <nav>
+        <button class="nav-link active" data-section="dashboard">Dashboard</button>
+        <button class="nav-link" data-section="applicants">Applicants</button>
+        <button class="nav-link" data-section="reports">Reports</button>
+        <button class="nav-link" data-section="support">Help Desk</button>
+        <button class="nav-link" data-section="documentation">Documentation</button>
+      </nav>
+      <div class="sidebar-note">
+        <strong>Purpose</strong>
+        <p>This project demonstrates CRM-style workflows: forms, portals, status tracking, reports, exports, user support, and documentation.</p>
+      </div>
+    </aside>
+
+    <section class="content">
+      <section id="dashboard" class="screen active-screen">
+        <div class="screen-heading">
+          <div>
+            <p class="eyebrow">Overview</p>
+            <h2>Admissions Operations Dashboard</h2>
+          </div>
+          <span id="lastUpdated" class="pill">Last updated: --</span>
+        </div>
+        <div id="kpiGrid" class="kpi-grid"></div>
+        <div class="two-column">
+          <div class="card">
+            <h3>Status Pipeline</h3>
+            <div id="statusBars" class="bar-list"></div>
+          </div>
+          <div class="card">
+            <h3>Operational Alerts</h3>
+            <ul id="alertsList" class="alert-list"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="applicants" class="screen">
+        <div class="screen-heading">
+          <div>
+            <p class="eyebrow">Records</p>
+            <h2>Applicant Management</h2>
+          </div>
+          <button id="openApplicantForm" class="primary">Add Applicant</button>
+        </div>
+
+        <div class="filter-card">
+          <label>
+            Search
+            <input id="searchInput" type="search" placeholder="Name, email, program..." />
+          </label>
+          <label>
+            Program
+            <select id="programFilter">
+              <option value="all">All Programs</option>
+            </select>
+          </label>
+          <label>
+            Status
+            <select id="statusFilter">
+              <option value="all">All Statuses</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Applicant</th>
+                <th>Program</th>
+                <th>Status</th>
+                <th>Missing Documents</th>
+                <th>Assigned Reviewer</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="applicantTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="reports" class="screen">
+        <div class="screen-heading">
+          <div>
+            <p class="eyebrow">Queries and Exports</p>
+            <h2>Operational Reports</h2>
+          </div>
+          <button id="exportReportBtn" class="primary">Export Summary CSV</button>
+        </div>
+        <div class="two-column">
+          <div class="card">
+            <h3>Applications by Program</h3>
+            <div id="programReport"></div>
+          </div>
+          <div class="card">
+            <h3>Applications by Status</h3>
+            <div id="statusReport"></div>
+          </div>
+        </div>
+        <div class="card full-width">
+          <h3>Incomplete Applications Query</h3>
+          <p class="muted">Applicants with one or more missing required documents.</p>
+          <div class="table-wrap compact">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Program</th>
+                  <th>Missing Documents</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="incompleteTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="support" class="screen">
+        <div class="screen-heading">
+          <div>
+            <p class="eyebrow">User Support</p>
+            <h2>Help Desk Requests</h2>
+          </div>
+          <button id="openTicketForm" class="primary">Add Ticket</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Request</th>
+                <th>User Type</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Resolution Notes</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="ticketTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="documentation" class="screen">
+        <div class="screen-heading">
+          <div>
+            <p class="eyebrow">Training Materials</p>
+            <h2>User Guide and Workflow Notes</h2>
+          </div>
+        </div>
+        <div class="doc-grid">
+          <article class="card">
+            <h3>Applicant Workflow</h3>
+            <ol>
+              <li>Create or import an applicant record.</li>
+              <li>Verify required documents.</li>
+              <li>Move the application from Submitted to Under Review.</li>
+              <li>Assign reviewer and document follow-up notes.</li>
+              <li>Generate reports or export records for operational use.</li>
+            </ol>
+          </article>
+          <article class="card">
+            <h3>Testing Checklist</h3>
+            <ul>
+              <li>Verify required form fields.</li>
+              <li>Confirm status changes update dashboard counts.</li>
+              <li>Test filters, search, and export buttons.</li>
+              <li>Check incomplete application query accuracy.</li>
+              <li>Record issues and recommended improvements.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Process Improvement Ideas</h3>
+            <ul>
+              <li>Automated reminders for missing documents.</li>
+              <li>Reviewer workload balancing.</li>
+              <li>Standardized ticket categories.</li>
+              <li>Monthly admissions trend reporting.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="applicantDialog" class="modal">
+    <form method="dialog" id="applicantForm">
+      <div class="modal-header">
+        <h3 id="applicantModalTitle">Add Applicant</h3>
+        <button type="button" class="icon-btn" data-close="applicantDialog">×</button>
+      </div>
+      <input type="hidden" id="applicantId" />
+      <div class="form-grid">
+        <label>Full Name <input id="fullName" required /></label>
+        <label>Email <input id="email" type="email" required /></label>
+        <label>Program <input id="program" required placeholder="e.g., Computer Science PhD" /></label>
+        <label>Term <input id="term" required placeholder="Fall 2026" /></label>
+        <label>Status
+          <select id="applicationStatus" required></select>
+        </label>
+        <label>Assigned Reviewer <input id="reviewer" placeholder="Faculty/Staff name" /></label>
+      </div>
+      <fieldset>
+        <legend>Required Documents Received</legend>
+        <div class="checkbox-grid" id="documentChecklist"></div>
+      </fieldset>
+      <label>Notes <textarea id="notes" rows="3" placeholder="Follow-up notes, reviewer comments, or special conditions"></textarea></label>
+      <div class="modal-actions">
+        <button type="button" class="secondary" data-close="applicantDialog">Cancel</button>
+        <button type="submit" class="primary">Save Applicant</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="ticketDialog" class="modal">
+    <form method="dialog" id="ticketForm">
+      <div class="modal-header">
+        <h3 id="ticketModalTitle">Add Help Desk Ticket</h3>
+        <button type="button" class="icon-btn" data-close="ticketDialog">×</button>
+      </div>
+      <input type="hidden" id="ticketId" />
+      <div class="form-grid">
+        <label>Request Title <input id="ticketTitle" required /></label>
+        <label>User Type
+          <select id="userType" required>
+            <option>Applicant</option>
+            <option>Faculty Reviewer</option>
+            <option>Graduate School Staff</option>
+            <option>Department Coordinator</option>
+          </select>
+        </label>
+        <label>Priority
+          <select id="priority" required>
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+          </select>
+        </label>
+        <label>Status
+          <select id="ticketStatus" required>
+            <option>Open</option>
+            <option>In Progress</option>
+            <option>Resolved</option>
+          </select>
+        </label>
+      </div>
+      <label>Resolution Notes <textarea id="resolutionNotes" rows="3"></textarea></label>
+      <div class="modal-actions">
+        <button type="button" class="secondary" data-close="ticketDialog">Cancel</button>
+        <button type="submit" class="primary">Save Ticket</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="src/app.js"></script>
+</body>
+</html>
