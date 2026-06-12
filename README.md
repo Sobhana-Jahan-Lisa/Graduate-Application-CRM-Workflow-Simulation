@@ -16,7 +16,7 @@ A web-based CRM prototype that simulates graduate admissions operations. This pr
 - CSV export for applicants and summary reports
 - Help Desk ticket tracker
 - User guide and workflow documentation
-- Testing checklist for QA and process improvement
+
 
 ## Technologies Used
 
